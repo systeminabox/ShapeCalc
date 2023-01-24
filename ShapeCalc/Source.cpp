@@ -3,6 +3,8 @@
 
 using namespace std;
 
+
+
 void main() {
 	/*TODO
 	* create menu of 5 shapes
@@ -10,4 +12,10 @@ void main() {
 	* display shape using console ASCII text art? (look into generating this for myself)
 	* calculate area and display
 	*/
+
+	//Menu
+	cout << "Please choose a shape: " << endl;
+	
+	
+
 }
