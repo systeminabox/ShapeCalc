@@ -5,7 +5,7 @@ using namespace std;
 
 //create an enum with our shape types
 enum Shapes {
-	circle, square, triangle, rect
+	circle, square, triangle, rect, trap
 	
 };
 
@@ -56,8 +56,20 @@ bool rectTest(double x, double y, double base, double height) {
 		return false;
 	}
 }
-
-string generateText(Shapes shape, double radius, double base, double height) {
+bool trapTest(double x, double y, double a, double b, double h) {
+	bool l1, l2, l3, l4;
+	l1 = y <= h / 2;
+	l2 = y >= -h / 2;
+	l3 = y <= -((2 * h * x) / (a - b) - ((h * (a + b)) / (2 * (a - b))));
+	l4 = y <= ((2 * h * x) / (a - b) - ((h * (a + b)) / (2 * (a - b))));
+	if (l1 && l2 && l3 && l4) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+string generateText(Shapes shape, double radius, double base, double height,double base2) {
 	//This function returns a string out that contains the data for the shape
 	double resolution = .1;//here we divide the shape into more characters so we can actually see it
 	string out = "";
@@ -83,6 +95,8 @@ string generateText(Shapes shape, double radius, double base, double height) {
 			case rect:
 				test = rectTest(x, y, base, height);
 				break;
+			case trap:
+				test = trapTest(x, y, base, base2, height);
 			}
 			//if our point is in the shape add a pound symbol otherwise add a space to our string
 			if (test) {
@@ -114,33 +128,31 @@ void main() {
 	while (choice != 0) {
 		//creating the menu options
 		cout << "Please choose a shape by entering a number or enter 0 to close: " << endl;
-		cout << "Square: 1\nCircle: 2\n Equilateral Triangle: 3\nRectangle: 4" << endl;
+		cout << "Square: 1\nCircle: 2\n Equilateral Triangle: 3\nRectangle: 4\nTrapezoid: 5" << endl;
 		cout << "Input: ";
 		cin >> choice;
-		double radius;
-		double area;
-		double base;
-		double height;
+		double radius,area,base,height,base2;
+		
 		switch (choice) {
 		case 1:
 			cout << "Choose the side length of the square: ";
 			cin >> radius;
 			area = radius * radius;
-			cout << generateText(square, radius / 2, 0,0) << endl;
+			cout << generateText(square, radius / 2, 0,0,0) << endl;
 			cout << "The area of the square is " << area << " units squared." << endl;
 			break;
 		case 2:
 			cout << "Choose the radius of the circle: ";
 			cin >> radius;
 			area = M_PI * (radius * radius);
-			cout << generateText(circle, radius, 0,0) << endl;
+			cout << generateText(circle, radius, 0,0,0) << endl;
 			cout << "The area of the circle is " << area << " units squared." << endl;
 			break;
 		case 3:
 			cout << "Choose the side length of the triangle: ";
 			cin >> radius;
 			area = ((radius * radius) * sqrt(3)) / 4;
-			cout << generateText(triangle, radius, 0,0) << endl;
+			cout << generateText(triangle, radius, 0,0,0) << endl;
 			cout << "The area of the triangle is " << area << " units squared." << endl;
 			break;
 		case 4:
@@ -150,14 +162,43 @@ void main() {
 			cin >> height;
 			area = base * height;
 			if (base >= height) {
-				cout << generateText(rect, base, base, height) << endl;
+				cout << generateText(rect, base, base, height,0) << endl;
 			}
 			else {
-				cout << generateText(rect, height, base, height) << endl;
+				cout << generateText(rect, height, base, height,0) << endl;
 			}
 
 			
 			cout << "The area of the rectangle is " << area << " units squared." << endl;
+			break;
+		case 5:
+			cout << "Choose the length of the short base of the trapezoid: ";
+			cin >> base;
+			cout << "Choose the length of the long base of the trapezoid: ";
+			cin >> base2;
+			cout << "Choose the length of the height of the trapezoid: ";
+			cin >> height;
+			area = ((base + base2)/2) * height;
+			if (base > base2) {
+				if (base >= height) {
+					cout << generateText(trap, base, base2, height, base) << endl;
+				}
+				else {
+					cout << generateText(trap, height, base2, height, base) << endl;
+				}
+				
+			}
+			else if(base2 > base) {
+				if (base2 >= height) {
+					cout << generateText(trap, base2, base, height, base2) << endl;
+				}
+				else {
+					cout << generateText(trap, height, base, height, base2) << endl;
+				}
+			}
+
+
+			cout << "The area of the trapezoid is " << area << " units squared." << endl;
 			break;
 		}
 		
