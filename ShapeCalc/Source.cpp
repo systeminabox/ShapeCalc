@@ -66,8 +66,12 @@ bool trapTest(double x, double y, double a, double b, double h) {
 	bool l1, l2, l3, l4;
 	l1 = y <= h / 2;
 	l2 = y >= -h / 2;
-	l3 = y <= -((2 * h * x) / (a - b) - ((h * (a + b)) / (2 * (a - b))));//the next two lines use a specific solution for a line that gives the correct slope and position to make the sides of the trapezoid.
-	l4 = y <= ((2 * h * x) / (a - b) - ((h * (a + b)) / (2 * (a - b))));
+
+	double firstHalf = (2 * h * x) / (a - b);
+	double secondHalf = (h * (a + b)) / (2 * (a - b));
+
+	l3 = y <= -firstHalf - secondHalf;//the next two lines use a specific solution for a line that gives the correct slope and position to make the sides of the trapezoid.
+	l4 = y <= firstHalf - secondHalf;
 	if (l1 && l2 && l3 && l4) {
 		return true;
 	}
@@ -132,19 +136,20 @@ void main() {
 	//Menu
 	int choice = -1;
 	//as long as the user doesn't enter 0 we loop forever
+	cout << "" << endl;
+	cout << "" << endl;
+	cout << "  _____                              _                          _ _    _____ _                           " << endl;
+	cout << " |  __ \\                            (_)          /\\            (_|_)  / ____| |                          " << endl;
+	cout << " | |  | |_   _ _ __   __ _ _ __ ___  _  ___     /  \\   ___  ___ _ _  | (___ | |__   __ _ _ __   ___  ___ " << endl;
+	cout << " | |  | | | | | '_ \\ / _` | '_ ` _ \\| |/ __|   / /\\ \\ / __|/ __| | |  \\___ \\| '_ \\ / _` | '_ \\ / _ \\/ __|" << endl;
+	cout << " | |__| | |_| | | | | (_| | | | | | | | (__   / ____ \\\\__ \\ (__| | |  ____) | | | | (_| | |_) |  __/\\__ \\" << endl;
+	cout << " |_____/ \\__, |_| |_|\\__,_|_| |_| |_|_|\\___| /_/    \\_\\___/\\___|_|_| |_____/|_| |_|\\__,_| .__/ \\___||___/" << endl;
+	cout << "          __/ |                                                                         | |              " << endl;
+	cout << "         |___/                                                                          |_|              " << endl;
+	cout << "_________________________________________________________________________________________________________" << endl;
 	while (choice != 0) {
 		//creating the menu options
-		cout << "" << endl;
-		cout<<""<<endl;
-cout<<"  _____                              _                          _ _    _____ _                           "<<endl;
-cout<<" |  __ \\                            (_)          /\\            (_|_)  / ____| |                          "<<endl;
-cout<<" | |  | |_   _ _ __   __ _ _ __ ___  _  ___     /  \\   ___  ___ _ _  | (___ | |__   __ _ _ __   ___  ___ "<<endl;
-cout<<" | |  | | | | | '_ \\ / _` | '_ ` _ \\| |/ __|   / /\\ \\ / __|/ __| | |  \\___ \\| '_ \\ / _` | '_ \\ / _ \\/ __|"<<endl;
-cout<<" | |__| | |_| | | | | (_| | | | | | | | (__   / ____ \\\\__ \\ (__| | |  ____) | | | | (_| | |_) |  __/\\__ \\"<<endl;
-cout<<" |_____/ \\__, |_| |_|\\__,_|_| |_| |_|_|\\___| /_/    \\_\\___/\\___|_|_| |_____/|_| |_|\\__,_| .__/ \\___||___/"<<endl;
-cout<<"          __/ |                                                                         | |              "<<endl;
-cout<<"         |___/                                                                          |_|              "<<endl;
-cout << "_________________________________________________________________________________________________________" << endl;
+
 		cout << "Please choose a shape by entering a number or enter 0 to close: " << endl;
 		cout << "Square: 1\nCircle: 2\nEquilateral Triangle: 3\nRectangle: 4\nTrapezoid: 5" << endl;
 		cout << "Input: ";
