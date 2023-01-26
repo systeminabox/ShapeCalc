@@ -134,8 +134,19 @@ void main() {
 	//as long as the user doesn't enter 0 we loop forever
 	while (choice != 0) {
 		//creating the menu options
+		cout << "" << endl;
+		cout<<""<<endl;
+cout<<"  _____                              _                          _ _    _____ _                           "<<endl;
+cout<<" |  __ \\                            (_)          /\\            (_|_)  / ____| |                          "<<endl;
+cout<<" | |  | |_   _ _ __   __ _ _ __ ___  _  ___     /  \\   ___  ___ _ _  | (___ | |__   __ _ _ __   ___  ___ "<<endl;
+cout<<" | |  | | | | | '_ \\ / _` | '_ ` _ \\| |/ __|   / /\\ \\ / __|/ __| | |  \\___ \\| '_ \\ / _` | '_ \\ / _ \\/ __|"<<endl;
+cout<<" | |__| | |_| | | | | (_| | | | | | | | (__   / ____ \\\\__ \\ (__| | |  ____) | | | | (_| | |_) |  __/\\__ \\"<<endl;
+cout<<" |_____/ \\__, |_| |_|\\__,_|_| |_| |_|_|\\___| /_/    \\_\\___/\\___|_|_| |_____/|_| |_|\\__,_| .__/ \\___||___/"<<endl;
+cout<<"          __/ |                                                                         | |              "<<endl;
+cout<<"         |___/                                                                          |_|              "<<endl;
+cout << "_________________________________________________________________________________________________________" << endl;
 		cout << "Please choose a shape by entering a number or enter 0 to close: " << endl;
-		cout << "Square: 1\nCircle: 2\n Equilateral Triangle: 3\nRectangle: 4\nTrapezoid: 5" << endl;
+		cout << "Square: 1\nCircle: 2\nEquilateral Triangle: 3\nRectangle: 4\nTrapezoid: 5" << endl;
 		cout << "Input: ";
 		cin >> choice;
 		double radius,area,base,height,base2;
