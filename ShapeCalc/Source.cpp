@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <windows.h>
 # define M_PI           3.14159265358979323846  /* pi */
 using namespace std;
 
@@ -134,6 +135,7 @@ void main() {
 	* calculate area and display
 	*/
 	//Menu
+	system("Color 02");
 	int choice = -1;
 	//as long as the user doesn't enter 0 we loop forever
 	cout << "" << endl;
@@ -149,9 +151,18 @@ void main() {
 	cout << "_________________________________________________________________________________________________________" << endl;
 	while (choice != 0) {
 		//creating the menu options
-
+	
 		cout << "Please choose a shape by entering a number or enter 0 to close: " << endl;
-		cout << "Square: 1\nCircle: 2\nEquilateral Triangle: 3\nRectangle: 4\nTrapezoid: 5" << endl;
+	
+		cout << "Square: 1" << endl;
+	
+		cout << "Circle: 2" << endl;
+		
+		cout << "Equilateral Triangle: 3" << endl;
+		
+		cout << "Rectangle: 4" << endl;
+		
+		cout <<"Trapezoid: 5" << endl;
 		cout << "Input: ";
 		cin >> choice;
 		double radius,area,base,height,base2;
