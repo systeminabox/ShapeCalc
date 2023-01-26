@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
-# define M_PI           3.14159265358979323846  /* pi */
+# define M_PI           3.14159265358979323846  /* pi added this way because it is equivalent to the math.h version*/
 using namespace std;
 
 
@@ -212,7 +212,7 @@ void main() {
 			cout << "The area of the rectangle is " << area << " units squared." << endl;
 			break;
 		case 5:
-			//Here is the trapezoid driver
+			//Here is the trapezoid display driver
 			cout << "Choose the length of the short base of the trapezoid: ";
 			cin >> base;
 			cout << "Choose the length of the long base of the trapezoid: ";
