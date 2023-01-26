@@ -137,7 +137,7 @@ void main() {
 	//Menu
 	system("Color 02");
 	int choice = -1;
-	//as long as the user doesn't enter 0 we loop forever
+	//Print a pretty menu
 	cout << "" << endl;
 	cout << "" << endl;
 	cout << "  _____                              _                          _ _    _____ _                           " << endl;
@@ -149,6 +149,7 @@ void main() {
 	cout << "          __/ |                                                                         | |              " << endl;
 	cout << "         |___/                                                                          |_|              " << endl;
 	cout << "_________________________________________________________________________________________________________" << endl;
+	//as long as the user doesn't enter 0 we loop forever
 	while (choice != 0) {
 		//creating the menu options
 	
