@@ -1,4 +1,12 @@
-﻿//Sabriel Nicewarner
+﻿/*
+* Sabriel Nicewarner
+* Dynamic Ascii Shapes
+* The code here uses a nested for loop to create the axes of the graph of each shape.
+* The point at (x,y) is then tested against the formula for the shape to see whether the point is inside the shape. 
+* Each shape is dynamic and draws based on the user input. The area is then calculated and printed to the screen.
+* This code uses if/else, switches, enums, functions, and a while loop.
+* 
+*/
 
 #include <iostream>
 #include <string>
@@ -68,7 +76,7 @@ bool trapTest(double x, double y, double a, double b, double h) {
 	l1 = y <= h / 2;
 	l2 = y >= -h / 2;
 
-	double firstHalf = (2 * h * x) / (a - b);
+	double firstHalf = (2 * h * x) / (a - b);//the parts of the equation are separated to prevent issues with order of operations.
 	double secondHalf = (h * (a + b)) / (2 * (a - b));
 
 	l3 = y <= -firstHalf - secondHalf;//the next two lines use a specific solution for a line that gives the correct slope and position to make the sides of the trapezoid.
@@ -128,12 +136,6 @@ string generateText(Shapes shape, double radius, double base, double height,doub
 }
 
 void main() {
-	/*TODO
-	* create menu of 5 shapes
-	* have user input needed dimensions for area
-	* display shape using console ASCII text art? (look into generating this for myself)
-	* calculate area and display
-	*/
 	//Menu
 	system("Color 02");
 	int choice = -1;
